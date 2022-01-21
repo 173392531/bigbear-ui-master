@@ -1,0 +1,58 @@
+.bigbear-table-wrapper{
+    @include ringwrapper($white,$neu-whiteshadow1,$neu-whiteshadow2);
+
+    padding:5px;
+    width: 100%;
+    .bigbear-table-table{
+        width: 100%;
+        .bigbear-table-head{
+            @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+
+            border-bottom: 1px solid $neu-whiteshadow1;
+            padding:10px;
+            width: 100%;
+            .bigbear-table-title{
+                @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+
+                padding:10px;
+                position: relative;
+                text-align: center;
+                .bigbear-table-icon{
+                    cursor: pointer;
+                    position: absolute;
+                    right: 10px;
+                }
+           
+            }
+        }
+        .bigbear-table-data{
+            @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+            .bigbear-table-data-row{
+                &:hover{
+                    background-color: #fafafa;
+                    >td{
+                        background: none;
+                        box-shadow: none;
+                    }
+                }
+                .bigbear-table-data-item{
+                    @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+                    text-align: center;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                }
+            }
+        }
+    }
+
+}
+.bigbear-table-container{
+    .bigbear-pagination-wrapper{
+        justify-content: flex-end;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        .bigbear-pagination-down{
+            margin-right: 10px;
+        }
+    }
+}

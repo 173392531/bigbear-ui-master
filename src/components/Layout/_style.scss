@@ -1,0 +1,54 @@
+.bigbear-layout{
+    display: flex;
+    flex:auto;
+    flex-direction: column;
+    margin:0;
+    padding: 0;
+    text-align: center;
+    .bigbear-layout-header{
+        height: $header-height;
+    }
+    .bigbear-layout-content{
+        flex:auto;
+        flex-basis: $content-basis;
+    }
+    .bigbear-layout-footer{
+        font-size: $font-size-sm;
+        padding: $footer-padding;
+    }
+    .bigbear-layout-sider{
+        flex-basis:$aside-flex-basis;
+        position: relative;
+    }
+}
+
+.bigbear-layout.bigbear-layout-row{
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+@media screen and (max-width: #{$content-basis + $aside-flex-basis + 20}) {
+    .bigbear-layout-sider{
+        flex-grow: 1;
+    }
+}
+
+
+@each $key,$val in $theme-colors{
+    .bigbear-layout-block-#{$key}{
+        @include neufactory-noactive(nth($val,1),nth($val,3),nth($val,4));
+
+        color:#{nth($val,2)};
+        margin: 0;
+        padding: 0;
+    }
+    .bigbear-layout-wrapper-#{$key}{
+        @include ringwrapper(nth($val,1),nth($val,3),nth($val,4));
+
+        color:#{nth($val,2)};
+        margin: 0;
+        padding:0;
+    }
+    .bigbear-layout-lineargradient-#{$key}{
+        background:linear-gradient(145deg, nth($val,4),nth($val,1))
+    }
+}

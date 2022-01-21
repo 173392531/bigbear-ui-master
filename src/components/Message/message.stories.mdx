@@ -1,0 +1,66 @@
+import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
+import Message,{message} from './message'
+import Button from '../Button'
+import Icon from '../Icon'
+
+<Meta title='Reaction|Message 全局提示' component={Message} />
+
+<br/>
+
+# Message 全局提示
+<br/>
+
+此组件在Alert组件上做了层封装。
+
+## directions 方位
+
+<Preview>
+  <Story name='alert'>
+      <div>
+        <Message  title='上方消息'/>
+        <Message title='左上方消息' directions='lt' />
+        <Message title='左下方消息'  directions='lb' />
+        <Message title= '右上方消息'  directions='rt' />
+          <Message title= '右下方消息'  directions='rb' />
+      </div>
+  </Story>
+</Preview>
+
+## message 函数调用
+
+第一个参数文本，第二个参数是options，可以加上各种配置。
+
+<Preview>
+  <Story name='message3'>
+      <div>
+        <Button onClick={()=>message.success('成功的消息')}> success</Button>
+        <Button onClick={()=>message.warning('警告的消息')}> warning</Button>
+        <Button onClick={()=>message.danger('危险的消息')}> danger</Button>
+        <Button onClick={()=>message.info('普通通知',{icon:undefined})}> info取消icon</Button>
+        <Button onClick={()=>message.default('普通消息',{icon:<Icon icon='coffee'></Icon>})}> default+自定义图标</Button>
+        <Button onClick={()=>message.primary('主题通知',{directions:'rb'})}> primary</Button>
+        <Button onClick={()=>message.secondary('副标题通知',{directions:'lt'})}> secondary</Button>
+        <Button onClick={()=>message.light('浅色通知',)}> light</Button>
+        <Button onClick={()=>message.dark('深色通知')}> dark</Button>
+      </div>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='description'>
+      <Button onClick={()=>message.info('我是标题',{directions:'rb',description:'我是长文本我是长文本我是我是长文本我是长文本我是长文本我是长文本我是长文本长文本我是长文本我是长文本我是长文本'})}>传递长文本</Button>
+  </Story>
+</Preview>
+
+不自动关闭需要设置autoclosedelay:0,close:true
+
+<Preview>
+  <Story name='consistant'>
+      <Button onClick={()=>message.info('我是标题',{autoclosedelay:0,close:true,directions:'rb',description:'我是长文本我是长文本我是我是长文本我是长文本我是长文本我是长文本我是长文本长文本我是长文本我是长文本我是长文本'
+        })}>持久化点击关闭</Button>
+  </Story>
+</Preview>
+
+## 属性详情
+
+<Props of={Message} />

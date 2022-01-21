@@ -1,0 +1,62 @@
+.bigbear-radio-wrapper{
+    @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+
+    display: inline-block;
+    padding: 5px;
+    .bigbear-radio-label {
+        cursor: pointer;
+        margin:0;
+        margin-left:5px;
+        margin-right: 5px;
+        position: relative;
+        .bigbear-radio-input{
+            opacity: 0;
+            position: absolute;
+        }
+        .bigbear-radio-dot {
+            @include square(20px);
+            @include ringwrapper($white,$neu-whiteshadow1,$neu-whiteshadow2);
+
+            border-radius: 50%;
+            display: inline-block;
+            position: relative;
+            vertical-align: sub;
+            
+        }
+        .bigbear-radio-dot::after{
+            @include square(10px);
+            @include neufactory-noactive($primary,$neu-blueshadow1,$neu-blueshadow2);
+
+            border-radius:50%;
+            content: '';
+            left:5px;
+            position: absolute;
+            top:5px;
+            transform: scale(0);
+            transition:all .2s cubic-bezier(.12,.4,.29,1.46) .1s;
+        }
+        .bigbear-radio-dot.radio-active::after{
+            @include square(10px);
+            @include neufactory-noactive($primary,$neu-blueshadow1,$neu-blueshadow2);
+
+            border-radius:50%;
+            content: '';
+            left:5px;
+            position: absolute;
+            top:5px;
+            transform: scale(1);
+            transition:all .2s cubic-bezier(.12,.4,.29,1.46) .1s;
+        }
+        .bigbear-radio-value{
+            padding:5px;
+            text-shadow: 1px 1px 4px $neu-whiteshadow1, -1px -1px 4px $neu-whiteshadow2;
+        }
+        .radio-active ~ .bigbear-radio-value{
+            color:$primary;
+        }
+        &.radio-disabled{
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+    }
+}

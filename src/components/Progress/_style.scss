@@ -1,0 +1,79 @@
+.bigbear-progress-wrapper{
+    align-items: center;
+    display:flex;
+    padding:5px;
+    width: 100%;
+    .bigbear-progress-bar{
+        @include ringwrapper($white,$neu-whiteshadow1,$neu-whiteshadow2);
+
+        border-radius: $porgress-radius;
+        flex:1;
+        padding: 1px;
+        position: relative;
+        width: 100%;
+        .bigbear-progress-inner{
+            @include neufactory-noactive($primary,$neu-blueshadow1,$neu-blueshadow2);
+
+            background-color: $primary;
+            background-image: linear-gradient(to right, $primary, $info);
+            border-radius: $porgress-radius;
+            transition:all .4s cubic-bezier(.08,.82,.17,1) 0s ;
+            &::before{
+                animation: bigbear-progress-active 2.4s cubic-bezier(.23,1,.32,1) infinite;
+                background: $white;
+                border-radius: 10px;
+                bottom: 0;
+                content: '';
+                left: 0;
+                opacity: 0;
+                position: absolute;
+                right: 0;
+                top:0;
+            }
+            
+        }
+    }
+    .bigbear-progress-number{
+        @include neu-textshadow($neu-whiteshadow1,$neu-whiteshadow2);
+
+        display: inline-block;
+        font-weight: $font-weight-bold;
+        margin-left: 10px;
+        min-width: 55px;
+        padding: 5px;
+        text-align: center;
+    }
+}
+
+@keyframes bigbear-progress-active{
+    0% { opacity: 0.1;
+         width: 0; 
+    }
+    20% { opacity: 0.5;
+         width: 0; 
+    } 
+    100% { opacity: 0;
+         width: 100%; 
+    }
+}
+
+
+.bigbear-progress-circle{
+    @include ringwrapper($white,$neu-whiteshadow1,$neu-whiteshadow2);
+
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    .bigbear-progress-circle-inner{
+        @include neufactory-noactive($white,$neu-whiteshadow1,$neu-whiteshadow2);
+
+        border-radius: 50%;
+        display: inline-block;
+        font-weight: $font-weight-bold;
+        left: 50%;
+        position: absolute;
+        text-align: center;
+        top:50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+}

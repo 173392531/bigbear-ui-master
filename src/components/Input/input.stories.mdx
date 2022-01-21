@@ -1,0 +1,42 @@
+import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
+import  Icon  from '../Icon';
+import Input from './input';
+import Button from '../Button'
+
+
+<Meta title='ENTRY|Input 输入框' component={Input} />
+
+<br/>
+
+# Input 输入框
+<br/>
+
+## 基本用法
+
+input本身是受控组件，可以通过传递setValueCallback使得状态转移至父组件。并且还可以通过ref回调操作实例。
+
+<Preview>
+<Story name='input1'> 
+    <div>
+        <Input></Input>
+        <Input  prepend='disabled' disabled></Input>
+        <Input  placeholder='placeholder'></Input>
+        <Input  prepend={<div><Icon icon='search'></Icon></div>} append={<div>append</div>}></Input>
+        <Input  prepend={'prepandstr'} append={<div><Icon icon='search'></Icon></div>}></Input>
+        <Input  type='password' prepend={<span>password:</span>}></Input>
+        <Input callback={(e)=>console.log(e.target.value)}  prepend='回调' ></Input>
+        <Input  append='默认值' defaultValue="我是默认值" ></Input>
+        <Input  value={'defaultvalue'}></Input>
+        <Input prepend='focus' refcallback={(ref)=>ref.current.focus()}></Input>
+        <Input prepend={<Button>按钮</Button>} append={<Button><Icon icon='search'></Icon></Button>} ></Input>
+         <Input height='50px' prepend={<Button>高度height</Button>} append={<Button><Icon icon='search'></Icon></Button>} ></Input>
+    </div>
+</Story>
+</Preview>
+
+
+
+
+## 属性详情
+
+<Props of={Input} />

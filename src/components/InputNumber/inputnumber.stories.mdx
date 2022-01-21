@@ -1,0 +1,82 @@
+import { Meta, Story, Props ,Preview } from '@storybook/addon-docs/blocks';
+import   InputNumber  from './inputnumber';
+import InputExample from './inputnumber.example'
+
+<Meta title='ENTRY | InputNumber 数字输入框' component={  InputNumber  }/>
+
+<br/>
+
+#  InputNumber 数字输入框
+<br/>
+
+## 基本使用
+
+此组件基于Input组件封装而成。
+
+<Preview>
+    <Story name='default'>
+        <InputNumber></InputNumber>
+    </Story>
+</Preview>
+
+## 控制上下限
+
+
+<Preview>
+    <Story name='default2'>
+        <InputNumber maxNumber={5} minNumber={-1}></InputNumber>
+    </Story>
+</Preview>
+
+## 步长与初始值
+
+<Preview>
+    <Story name='default3'>
+        <InputNumber defaultValue='5' step={10}></InputNumber>
+    </Story>
+</Preview>
+
+## 按钮初始展开
+<Preview>
+    <Story name='default5'>
+        <InputNumber initialVisible={true} inputNumberCallback={(e)=>console.log(e)} ></InputNumber>
+    </Story>
+</Preview>
+
+## 按钮样式&宽度
+<Preview>
+    <Story name='default6'>
+        <InputNumber 
+        inputWidth={30}
+        extraWidth={5}
+        btnProps={{btnType:'primary',size:'sm'}}
+        initialVisible={true} inputNumberCallback={(e)=>console.log(e)} ></InputNumber>
+    </Story>
+</Preview>
+
+
+## 父组件接管example
+
+<Preview>
+    <Story name='default8'>
+       <InputExample></InputExample>
+    </Story>
+</Preview>
+
+```typescript
+export default function() {
+	const [state, setState] = useState<string>("0");
+	return (
+		<InputNumber
+			parentValue={state}
+			parentSetState={setState}
+			inputNumberCallback={(e) => console.log(e)}
+		></InputNumber>
+	);
+}
+```
+
+
+## 属性详情
+
+<Props of={InputNumber}/>
